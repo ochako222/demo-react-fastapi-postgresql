@@ -1,6 +1,4 @@
-# Initialization python project
-
-First of all, we need to update our global python files 
+# Backend start
 
 ```bash
 brew update
@@ -26,4 +24,21 @@ Install libraries
 
 ```bash
 pip install -r requirements.txt
+```
+
+
+## Commands
+Start project:
+```
+docker compose up -d
+```
+
+Create migration file:
+```
+backend/scripts/autogenerate_migrations.sh "My migration"
+```
+
+Run migration:
+```
+backend/scripts/run_migrations.sh
 ```
