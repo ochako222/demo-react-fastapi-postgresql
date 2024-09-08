@@ -1,1 +1,7 @@
-backend/env
+
+# dependencies
+frontend/node_modules/
+backend/env/
+
+# metadata / cache
+backend/__pycache__/
