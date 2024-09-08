@@ -2,6 +2,7 @@
 # dependencies
 **/node_modules/
 **/env/
+**/docker/
 
 # metadata / cache
 **/__pycache__/
