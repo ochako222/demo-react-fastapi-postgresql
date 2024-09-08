@@ -33,6 +33,11 @@ Start project:
 docker compose up -d
 ```
 
+Update alembic
+```bash
+docker compose exec backend alembic upgrade head
+```
+
 Create migration file:
 ```
 backend/scripts/autogenerate_migrations.sh "My migration"
