@@ -30,11 +30,10 @@ app = FastAPI(lifespan=lifespan, title=settings.project_name, docs_url="/api/doc
 
 @app.get("/")
 async def root():
-    return {"message": "Hello World"}
+    return {"message": "Hello Curies!"}
 
 
 # Routers
-app.include_router(users_router)
 app.include_router(article_router)
 
 

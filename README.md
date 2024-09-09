@@ -47,3 +47,9 @@ Run migration:
 ```
 backend/scripts/run_migrations.sh
 ```
+
+To apply changes run
+```
+docker-compose build
+docker compose up -d
+```

@@ -1,8 +1,7 @@
-from app.api.dependencies.auth import validate_is_authenticated
 from app.api.dependencies.core import DBSessionDep
-from app.crud.article import get_article
+from app.crud.article import create_article, get_article
 from app.schemas.article import Article
-from fastapi import APIRouter, Depends
+from fastapi import APIRouter, Depends, HTTPException
 
 router = APIRouter(
     prefix="/api/articles",
@@ -12,8 +11,7 @@ router = APIRouter(
 
 @router.get(
     "/{article_id}",
-    response_model=Article,
-    dependencies=[Depends(validate_is_authenticated)],
+    response_model=Article
 )
 
 async def article_details(
@@ -25,3 +23,22 @@ async def article_details(
     """
     article = await get_article(db_session, article_id)
     return article
+
+
+@router.post(
+    "/",
+     response_model=Article,
+    tags=["articles"],
+)
+async def create_new_article(
+    article_data: Article,
+    db_session: DBSessionDep
+):
+    """
+    Create a new article
+    """
+    try:
+        new_article = await create_article(db_session, article_data)
+        return new_article
+    except Exception as e:
+        raise HTTPException(status_code=400, detail=str(e))
