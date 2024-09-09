@@ -7,7 +7,7 @@ from fastapi import APIRouter, Depends
 router = APIRouter(
     prefix="/api/users",
     tags=["users"],
-    responses={404: {"description": "Not found"}},
+    responses={404: {"description": "User not found"}},
 )
 
 @router.get(
