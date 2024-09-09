@@ -1,7 +1,7 @@
 from app.api.dependencies.auth import validate_is_authenticated
 from app.api.dependencies.core import DBSessionDep
-from app.crud.user import get_article
-from app.schemas.user import Article
+from app.crud.article import get_article
+from app.schemas.article import Article
 from fastapi import APIRouter, Depends
 
 router = APIRouter(
