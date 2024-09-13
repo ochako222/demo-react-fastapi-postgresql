@@ -5,7 +5,6 @@ from contextlib import asynccontextmanager
 import uvicorn
 from fastapi import FastAPI
 
-from app.api.routers.users import router as users_router
 from app.api.routers.articles import router as article_router
 from app.config import settings
 from app.database import sessionmanager
