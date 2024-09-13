@@ -2,7 +2,7 @@ from typing import List
 from app.api.dependencies.core import DBSessionDep
 from app.crud.article import create_article, get_article,get_all_articles,delete_article_by_id
 from app.schemas.article import Article
-from fastapi import APIRouter, Depends, HTTPException
+from fastapi import APIRouter,HTTPException
 
 router = APIRouter(
     prefix="/api/articles",
@@ -22,12 +22,15 @@ async def article_details(
     """
     Get any article details
     """
-    return await get_article(db_session, article_id)
-
-
+    try:
+        return await get_article(db_session, article_id) 
+    except Exception as e:
+        raise HTTPException(status_code=400, detail=str(e))
+   
+    
 @router.post(
     "/",
-     response_model=Article,
+    response_model=Article,
     tags=["articles"],
 )
 async def create_new_article(
@@ -37,7 +40,11 @@ async def create_new_article(
     """
     Create a new article
     """
-    await create_article(db_session,article_data)
+    try:
+        return await create_article(db_session, article_data)
+    except Exception as e:
+        raise HTTPException(status_code=400, detail=str(e))
+  
 
 @router.get(
     "/",
@@ -49,12 +56,15 @@ async def get_articles(
     """
     Get all articles
     """
-    return await get_all_articles(db_session)
+    try:
+        return await get_all_articles(db_session)
+    except Exception as e:
+        raise HTTPException(status_code=400, detail=str(e))
+    
 
 
 @router.delete(
-    "/{article_id}",
-    response_model=Article
+    "/{article_id}"
 )
 async def delete_article(
     article_id: int,
@@ -63,4 +73,10 @@ async def delete_article(
     """
     Delete an article
     """
-    return await delete_article_by_id(db_session,article_id)
+    try:
+        await delete_article_by_id(db_session,article_id)
+        return {"message": "article deleted"}
+    except Exception as e:
+        raise HTTPException(status_code=400, detail=str(e))
+    
+   
