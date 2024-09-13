@@ -56,3 +56,22 @@ async def get_articles(
     """
     articles = await get_all_articles(db_session)
     return articles
+
+
+@router.delete(
+    "/{article_id}",
+    response_model=Article
+)
+async def delete_article(
+    article_id: int,
+    db_session: DBSessionDep
+):
+    """
+    Delete an article
+    """
+    article = await get_article(db_session, article_id)
+    if not article:
+        raise HTTPException(status_code=404, detail="Article not found")
+    await db_session.delete(article)
+    await db_session.commit()
+    return article
