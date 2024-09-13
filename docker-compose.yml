@@ -32,7 +32,7 @@ services:
     build:
       context: backend
       dockerfile: Dockerfile
-    command: python main.py
+    command: python app/main.py
     tty: true
     volumes:
       - ./backend:/backend/:cached
