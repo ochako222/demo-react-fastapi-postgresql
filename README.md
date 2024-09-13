@@ -33,14 +33,9 @@ Start project:
 docker compose up -d
 ```
 
-Update alembic
-```bash
-docker compose exec backend alembic upgrade head
+Create initial migration file:
 ```
-
-Create migration file:
-```
-backend/scripts/autogenerate_migrations.sh "My migration"
+backend/scripts/generate_initial_migration.sh "Initial migration"
 ```
 
 Run migration:
