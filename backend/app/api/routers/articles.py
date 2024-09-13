@@ -1,6 +1,6 @@
 from typing import List
 from app.api.dependencies.core import DBSessionDep
-from app.crud.article import create_article, get_article,get_all_articles
+from app.crud.article import create_article, get_article,get_all_articles,delete_article_by_id
 from app.schemas.article import Article
 from fastapi import APIRouter, Depends, HTTPException
 
@@ -22,8 +22,7 @@ async def article_details(
     """
     Get any article details
     """
-    article = await get_article(db_session, article_id)
-    return article
+    return await get_article(db_session, article_id)
 
 
 @router.post(
@@ -38,11 +37,7 @@ async def create_new_article(
     """
     Create a new article
     """
-    try:
-        new_article = await create_article(db_session, article_data)
-        return new_article
-    except Exception as e:
-        raise HTTPException(status_code=400, detail=str(e))
+    await create_article(db_session,article_data)
 
 @router.get(
     "/",
@@ -54,8 +49,7 @@ async def get_articles(
     """
     Get all articles
     """
-    articles = await get_all_articles(db_session)
-    return articles
+    return await get_all_articles(db_session)
 
 
 @router.delete(
@@ -69,9 +63,4 @@ async def delete_article(
     """
     Delete an article
     """
-    article = await get_article(db_session, article_id)
-    if not article:
-        raise HTTPException(status_code=404, detail="Article not found")
-    await db_session.delete(article)
-    await db_session.commit()
-    return article
+    return await delete_article_by_id(db_session,article_id)
