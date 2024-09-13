@@ -1,5 +1,6 @@
+from typing import List
 from app.api.dependencies.core import DBSessionDep
-from app.crud.article import create_article, get_article
+from app.crud.article import create_article, get_article,get_all_articles
 from app.schemas.article import Article
 from fastapi import APIRouter, Depends, HTTPException
 
@@ -42,3 +43,16 @@ async def create_new_article(
         return new_article
     except Exception as e:
         raise HTTPException(status_code=400, detail=str(e))
+
+@router.get(
+    "/",
+    response_model=List[Article]
+)
+async def get_articles(
+    db_session: DBSessionDep
+):
+    """
+    Get all articles
+    """
+    articles = await get_all_articles(db_session)
+    return articles

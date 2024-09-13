@@ -17,3 +17,9 @@ async def create_article(db_session: AsyncSession, article_data: Article):
     db_session.add(article)
     await db_session.commit()
     return article
+
+async def get_all_articles(db_session: AsyncSession):
+    articles = await db_session.scalars(select(ArticleDBModel))
+    if not articles:
+        raise HTTPException(status_code=404, detail="No articles found")
+    return articles
