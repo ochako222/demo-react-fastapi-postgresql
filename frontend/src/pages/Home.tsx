@@ -28,7 +28,7 @@ import { TbSql } from 'react-icons/tb';
 
 import { ReactComponent as EleksIcon } from '../assets/icons/eleks-vector-logo.svg';
 import { ReactComponent as CreatioIcon } from '../assets/icons/creatio-vector-logo.svg';
-import { ReactComponent as KindGeek } from '../assets/icons/kindgeek-vector-logo.svg';
+import { ReactComponent as KindGeekIcon } from '../assets/icons/kindgeek-vector-logo.svg';
 
 const ProfileImage = chakra(Image, {
     shouldForwardProp: (prop) => ['width', 'height', 'src', 'alt'].includes(prop)
@@ -42,6 +42,7 @@ const Paragraph = styled.p`
 const Social = styled.a`
     textdecoration: none;
 `;
+
 
 export const Home: React.FC = () => (
     <>
@@ -118,42 +119,45 @@ export const Home: React.FC = () => (
                 </Heading>
 
                 <Paragraph>
-                    I&apos;m currently working at
+                   
+                   <p style={{ margin: "0", lineHeight:'1.5'}}>
+                    I&apos;m currently working at&nbsp;
                     <Link
                         href="https://www.eleks.com"
                         target="_blank"
                         rel="noopener noreferrer"
-                        style={{ display: 'flex', alignItems: 'center', textDecoration: 'none' }}
+                        style={{  textDecoration: 'none', display:'inline-block', width: '3em', height:'100%', verticalAlign:'baseline' }}
                     >
-                        <EleksIcon style={{ marginRight: '10px' }} />
+                        <EleksIcon/>
                     </Link>
-                    on an education platform for enterprise clients, where I&apos;m automating every
-                    possible aspect of the app, developing various integrations, and enjoying the
-                    process.
+                     , on an education platform for enterprise clients, where I&apos;m automating every
+                    possible aspect of the app, developing various integrations, and enjoying the CI delivery
+                    process. It&apos;s awesome to see how the test framework has grown from zero to hero.
+                    </p>
                     <br />
                     <br />
-                    Previously, I worked at{' '}
+                    Previously, I worked at
                     <Link
                         href="https://www.eleks.com"
                         target="_blank"
                         rel="noopener noreferrer"
-                        style={{ display: 'flex', alignItems: 'center', textDecoration: 'none' }}
+                        style={{  textDecoration: 'none', display:'inline-block', width: '3em', height:'100%', margin:'0 0 0 0.25em ' }}
                     >
-                        <KindGeek style={{ marginRight: '10px' }} />
-                    </Link>{' '}
-                    as part of an automation team focused on the UI and API aspects of a fintech
-                    product.
-                    <br />
-                    <br />
-                    Before KindGeek, I was a general QA at{' '}
-                    <Link
-                        href="https://www.eleks.com"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        style={{ display: 'flex', alignItems: 'center', textDecoration: 'none' }}
-                    >
-                        <CreatioIcon style={{ marginRight: '10px' }} />
+                        <KindGeekIcon />
                     </Link>
+                    &nbsp;as part of an automation team, building automation processes for a banking application. Basically here I worked on UI and mobile part of test framework.
+                    <br />
+                    <br />
+                    Before joining KindGeek, I was a general QA at
+                    <Link
+                        href="https://www.eleks.com"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        style={{  textDecoration: 'none', display:'inline-block', width: '3em', height:'100%' }}
+                    >
+                        <CreatioIcon/>
+                    </Link>
+                    , where I worked on BDD tests with Cucumber for a low-code, CRM system
                     <br />
                 </Paragraph>
             </Box>
