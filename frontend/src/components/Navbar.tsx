@@ -1,4 +1,3 @@
-// @ts-nocheck
 import {
     Box,
     Button,
@@ -13,33 +12,20 @@ import {
     Image
 } from '@chakra-ui/react';
 import React, { useContext } from 'react';
-import { GoogleAuthProvider, signInWithPopup, User } from 'firebase/auth';
 import { IoLogoGithub } from 'react-icons/io5';
 import { HamburgerIcon } from '@chakra-ui/icons';
 import { AuthContext } from '../context/AuthContext';
-import { auth } from '../firebase-config';
 
 export const Navbar: React.FC = () => {
     const context = useContext(AuthContext);
 
-    const loginHandler = async () => {
-        const provider = new GoogleAuthProvider();
-        const result = await signInWithPopup(auth, provider);
-
-        const { accessToken } = result.user as User & {
-            accessToken: string;
-        };
-
-        context.login(accessToken, `${Date.now()}`);
-    };
-
     const logo = () => {
-        if (context.isLoggedIn) {
-            return <Button onClick={() => context.logout()}>Log out</Button>;
+        if (context.profile) {
+            return <Button onClick={context.logOut}>Log out</Button>;
         }
         return (
-            <Button onClick={() => loginHandler()} variant="ghost" size="lg">
-                Olexander Chako
+            <Button onClick={() => context.login()} variant="ghost" size="lg">
+                Sign in with Google
             </Button>
         );
     };
@@ -59,6 +45,9 @@ export const Navbar: React.FC = () => {
                     maxW={{ base: 'container.md', md: 'container.lg', lg: '60%' }}
                 >
                     <Flex align="center" mr={5}>
+                        <Button onClick={() => console.log(context.user, context.profile)}>
+                            Foo button
+                        </Button>
                         {logo()}
                     </Flex>
                     <Flex

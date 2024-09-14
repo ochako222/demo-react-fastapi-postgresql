@@ -1,5 +1,5 @@
 import { Box, chakra, Image, Container, Heading, Button, Grid, GridItem } from '@chakra-ui/react';
-import { Helmet } from 'react-helmet';
+import {Helmet} from "react-helmet";
 import React from 'react';
 import styled from '@emotion/styled';
 import { IoLogoWhatsapp, IoLogoLinkedin, IoLogoJavascript } from 'react-icons/io5';

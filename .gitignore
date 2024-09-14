@@ -3,6 +3,7 @@
 **/node_modules/
 **/env/
 **/docker/
+**/frontend/build
 
 # metadata / cache
 **/__pycache__/
