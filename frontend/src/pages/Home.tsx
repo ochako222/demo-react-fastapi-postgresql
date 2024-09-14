@@ -1,5 +1,15 @@
-import { Box, chakra, Image, Container, Heading, Button, Grid, GridItem } from '@chakra-ui/react';
-import {Helmet} from "react-helmet";
+import {
+    Box,
+    chakra,
+    Image,
+    Container,
+    Heading,
+    Button,
+    Grid,
+    GridItem,
+    Link
+} from '@chakra-ui/react';
+import { Helmet } from 'react-helmet';
 import React from 'react';
 import styled from '@emotion/styled';
 import { IoLogoWhatsapp, IoLogoLinkedin, IoLogoJavascript } from 'react-icons/io5';
@@ -15,6 +25,10 @@ import {
 } from 'react-icons/si';
 
 import { TbSql } from 'react-icons/tb';
+
+import { ReactComponent as EleksIcon } from '../assets/icons/eleks-vector-logo.svg';
+import { ReactComponent as CreatioIcon } from '../assets/icons/creatio-vector-logo.svg';
+import { ReactComponent as KindGeek } from '../assets/icons/kindgeek-vector-logo.svg';
 
 const ProfileImage = chakra(Image, {
     shouldForwardProp: (prop) => ['width', 'height', 'src', 'alt'].includes(prop)
@@ -57,9 +71,15 @@ export const Home: React.FC = () => (
                         Oleksandr Chako
                     </Heading>
                     <p>
-                        I&apos;m a software developer in tests with a passion for building modern
-                        and flexible digital services. I can manage all things with planning,
-                        designing and testing applications.
+                        I&apos;m a nerdy introvert based in Wroclaw, Poland, where I live with my
+                        wife and 5 tiny budgie
+                        <br />
+                        <br />
+                        I have a knack for everything testing-related and developing products, from
+                        planning and designing to solving real-life problems with code.
+                        <br />
+                        <br />
+                        Welcome to my website!
                     </p>
                 </Box>
                 <Box
@@ -92,23 +112,49 @@ export const Home: React.FC = () => (
                 </Box>
             </Box>
 
-            <Box textAlign={'center'} py={5}>
-                <a href={`${process.env.PUBLIC_URL}/Olexander_Chako_CV.pdf`} download>
-                    <Button colorScheme="teal" variant="solid">
-                        Download CV
-                    </Button>
-                </a>
-            </Box>
-
             <Box py={5}>
                 <Heading as="h4" size="md" variant="section-title">
                     Things I&apos;m doing...
                 </Heading>
+
                 <Paragraph>
-                    I&apos;m a skilled AQA engineer with a passion for building digital
-                    services/stuff I want. I have a knack for all things testing and developing
-                    products, from planning and designing all the way to solving real-life problems
-                    with code.
+                    I&apos;m currently working at
+                    <Link
+                        href="https://www.eleks.com"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        style={{ display: 'flex', alignItems: 'center', textDecoration: 'none' }}
+                    >
+                        <EleksIcon style={{ marginRight: '10px' }} />
+                    </Link>
+                    on an education platform for enterprise clients, where I&apos;m automating every
+                    possible aspect of the app, developing various integrations, and enjoying the
+                    process.
+                    <br />
+                    <br />
+                    Previously, I worked at{' '}
+                    <Link
+                        href="https://www.eleks.com"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        style={{ display: 'flex', alignItems: 'center', textDecoration: 'none' }}
+                    >
+                        <KindGeek style={{ marginRight: '10px' }} />
+                    </Link>{' '}
+                    as part of an automation team focused on the UI and API aspects of a fintech
+                    product.
+                    <br />
+                    <br />
+                    Before KindGeek, I was a general QA at{' '}
+                    <Link
+                        href="https://www.eleks.com"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        style={{ display: 'flex', alignItems: 'center', textDecoration: 'none' }}
+                    >
+                        <CreatioIcon style={{ marginRight: '10px' }} />
+                    </Link>
+                    <br />
                 </Paragraph>
             </Box>
 

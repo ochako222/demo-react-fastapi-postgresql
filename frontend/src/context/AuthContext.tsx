@@ -1,13 +1,10 @@
-import React, {useContext}  from 'react';
-
+import React, { useContext } from 'react';
 
 export const AuthContext = React.createContext({
-    user: null,
-    profile: null,
+    isLogged: false,
     login: () => {},
     logOut: () => {}
 });
-
 
 export const useAuth = () => {
     return useContext(AuthContext);

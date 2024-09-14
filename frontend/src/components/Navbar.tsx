@@ -20,12 +20,12 @@ export const Navbar: React.FC = () => {
     const context = useContext(AuthContext);
 
     const logo = () => {
-        if (context.profile) {
+        if (context.isLogged) {
             return <Button onClick={context.logOut}>Log out</Button>;
         }
         return (
             <Button onClick={() => context.login()} variant="ghost" size="lg">
-                Sign in with Google
+                Oleksandr Chako
             </Button>
         );
     };
@@ -45,9 +45,6 @@ export const Navbar: React.FC = () => {
                     maxW={{ base: 'container.md', md: 'container.lg', lg: '60%' }}
                 >
                     <Flex align="center" mr={5}>
-                        <Button onClick={() => console.log(context.user, context.profile)}>
-                            Foo button
-                        </Button>
                         {logo()}
                     </Flex>
                     <Flex

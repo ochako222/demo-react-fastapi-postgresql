@@ -7,7 +7,6 @@ import { Navbar } from './components/Navbar';
 import { Home } from './pages/Home';
 import { AuthProvider } from './context/AuthProvider';
 
-
 const App: React.FC = () => {
     // const { userId, login, logout } = useAuth();
 
