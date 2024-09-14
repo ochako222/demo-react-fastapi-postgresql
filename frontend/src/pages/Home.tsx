@@ -111,18 +111,17 @@ export const Home: React.FC = () => (
                 </Heading>
 
                 <Paragraph>
-                    <p style={{ margin: '0', lineHeight: '1.5' }}>
-                        I&apos;m currently working at&nbsp;
+           
+                        I&apos;m currently working at
                         <Link
                             href="https://www.eleks.com"
                             target="_blank"
                             rel="noopener noreferrer"
                             style={{
                                 textDecoration: 'none',
-                                display: 'inline-block',
-                                width: '3em',
+                                display: 'inline',
                                 height: '100%',
-                                verticalAlign: 'baseline'
+                                margin: '0 0 0 0.25em '
                             }}
                         >
                             <EleksIcon />
@@ -131,18 +130,17 @@ export const Home: React.FC = () => (
                         every possible aspect of the app, developing various integrations, and
                         enjoying the CI delivery process. It&apos;s awesome to see how the test
                         framework has grown from zero to hero.
-                    </p>
+              
                     <br />
                     <br />
                     Previously, I worked at
                     <Link
-                        href="https://www.eleks.com"
+                        href="https://kindgeek.com/"
                         target="_blank"
                         rel="noopener noreferrer"
                         style={{
                             textDecoration: 'none',
-                            display: 'inline-block',
-                            width: '3em',
+                            display: 'inline',
                             height: '100%',
                             margin: '0 0 0 0.25em '
                         }}
@@ -153,16 +151,16 @@ export const Home: React.FC = () => (
                     application. Basically here I worked on UI and mobile part of test framework.
                     <br />
                     <br />
-                    Before joining KindGeek, I was a general QA at&nbsp;
+                    Before joining KindGeek, I was a general QA at
                     <Link
-                        href="https://www.eleks.com"
+                        href="https://www.creatio.com/"
                         target="_blank"
                         rel="noopener noreferrer"
                         style={{
                             textDecoration: 'none',
-                            display: 'inline-block',
-                            width: '3em',
-                            height: '100%'
+                            display: 'inline',
+                            height: '100%',
+                            margin: '0 0 0 0.25em '
                         }}
                     >
                         <CreatioIcon />
