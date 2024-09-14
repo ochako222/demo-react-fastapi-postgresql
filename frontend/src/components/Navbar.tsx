@@ -70,7 +70,7 @@ export const Navbar: React.FC = () => {
                             alignItems="center"
                             style={{ gap: 4, color: 'inherit' }}
                             pl={2}
-                            href="https://github.com/achako2012/about-alex"
+                            href="https://github.com/ochako222/ochako-fastapi-react"
                         >
                             <IoLogoGithub />
                             Source
@@ -116,7 +116,7 @@ export const Navbar: React.FC = () => {
                                 <MenuItem
                                     as={Link}
                                     style={{ color: 'inherit', textDecoration: 'none' }}
-                                    href="https://github.com/achako2012/about-alex"
+                                    href="https://github.com/ochako222/ochako-fastapi-react"
                                 >
                                     View Source
                                 </MenuItem>
@@ -128,7 +128,7 @@ export const Navbar: React.FC = () => {
                                     <Image
                                         objectFit="cover"
                                         src={`${process.env.PUBLIC_URL}/coffee.webp`}
-                                        alt="Dan Abramov"
+                                        alt=""
                                         width="10em"
                                     />
                                 </MenuItem>
