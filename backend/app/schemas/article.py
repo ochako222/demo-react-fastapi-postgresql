@@ -6,4 +6,7 @@ class Article(BaseModel):
 
     id: int
     date_creation: str
+    title: str
     markdown: str
+    thumbnail: str
+    color: str

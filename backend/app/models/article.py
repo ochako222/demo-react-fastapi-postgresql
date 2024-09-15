@@ -8,4 +8,7 @@ class Article(Base):
 
     id: Mapped[int] = mapped_column(primary_key=True, autoincrement=True, index=True)
     date_creation: Mapped[str] = mapped_column(index=True, unique=True)
+    title: Mapped[str]
     markdown: Mapped[str]
+    thumbnail: Mapped[str]
+    color: Mapped[str]

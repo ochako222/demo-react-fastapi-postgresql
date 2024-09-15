@@ -13,9 +13,9 @@ import {
 import { Helmet } from 'react-helmet';
 import React from 'react';
 import styled from '@emotion/styled';
-import { IoLogoWhatsapp, IoLogoLinkedin, IoLogoJavascript } from 'react-icons/io5';
+import {  IoLogoLinkedin, IoLogoJavascript } from 'react-icons/io5';
 import { FaTelegramPlane, FaReact } from 'react-icons/fa';
-import { SiTypescript, SiCypress, SiPlaywright, SiPython, SiFastapi } from 'react-icons/si';
+import { SiTypescript, SiCypress, SiPlaywright, SiPython, SiFastapi, SiRobotframework } from 'react-icons/si';
 
 import { TbSql } from 'react-icons/tb';
 
@@ -206,6 +206,11 @@ export const Home: React.FC = () => (
                         <SiPlaywright color="#3B3B3B" fontSize="3em" />
                     </GridItem>
                     </Tooltip>
+                    <Tooltip label='Robot Framework - 0.5 years' fontSize='md'>
+                    <GridItem>
+                        <SiRobotframework color="#3B3B3B" fontSize="3em" />
+                    </GridItem>
+                    </Tooltip>
                     <Tooltip label='React - 1 year' fontSize='md'>
                     <GridItem>
                         <FaReact color="#60DBFB" fontSize="3em" />
@@ -232,7 +237,7 @@ export const Home: React.FC = () => (
                     maxW="container.md"
                     flexWrap="wrap"
                 >
-                    <Social href="https://wa.me/380982829279" target="_blank">
+                    {/* <Social href="https://wa.me/380982829279" target="_blank">
                         <Button
                             variant="outline"
                             colorScheme="whatsapp"
@@ -240,7 +245,7 @@ export const Home: React.FC = () => (
                         >
                             Whatsapp
                         </Button>
-                    </Social>
+                    </Social> */}
                     <Social
                         href="https://www.linkedin.com/in/alexander-chako-907624154/"
                         target="_blank"
