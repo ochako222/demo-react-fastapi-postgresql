@@ -5,24 +5,17 @@ import { Link } from "react-router-dom";
 import { api } from "src/api/articles.service";
 import { BlogCard } from "src/components/BlogCard";
 import { AuthContext } from "src/context/AuthContext";
-import { Post } from "src/types";
+import { ArticleResponseT } from "src/types";
 
 
 export const PostsList: React.FC = () => {
     const context = useContext(AuthContext);
-    const [postsList, updatePostsList] = useState<Post[]>();
+    const [postsList, updatePostsList] = useState<ArticleResponseT[]>();
 
-    const deletePost = (id: string) => {
-        console.log(id)
-        // if (db) {
-        //     const fooRef = ref(db, `posts/${id}`);
-        //     remove(fooRef);
-
-        //     const newPostsLiist = postsList?.filter((el) => el.id !== id);
-        //     updatePostsList(newPostsLiist);
-        // } else {
-        //     console.log('db is null...');
-        // }
+    const deletePost = async (id: number) => {
+        await api.deleteArticle(id)
+        const newPostsList = postsList?.filter((el) => el.id !== id);
+        updatePostsList(newPostsList);
     };
 
 
@@ -38,38 +31,13 @@ export const PostsList: React.FC = () => {
             }else{
                 console.log('there are not articles...')
             }
-        
-
-
-            // if (db) {
-            //     const postRef = ref(db, `posts`);
-            //     const snapshot = await get(postRef);
-
-            //     const fireBasePosts = snapshot.val() as FirebasePostsI[];
-
-            //     const posts: Post[] = [];
-
-            //     for (const [key, value] of Object.entries(fireBasePosts)) {
-            //         posts.push({
-            //             id: key,
-            //             title: value.title,
-            //             markdown: value.markdown,
-            //             thumbnail: value.thumbnail,
-            //             color: value.color
-            //         });
-            //     }
-
-            //     updatePostsList(posts);
-            // } else {
-            //     console.log('there are not posts...');
-            // }
         };
 
         setPost();
     }, []);
 
-    const renderPosts = (arr: Post[]) =>
-        arr.map((item: Post) => (
+    const renderPosts = (arr: ArticleResponseT[]) =>
+        arr.map((item: ArticleResponseT) => (
             <BlogCard
                 post={item}
                 key={item.id}

@@ -10,8 +10,7 @@
 // }
 
 
-
-export interface Post {
+interface ArticleI{
     id: number
     date_creation:string
     title:string
@@ -19,3 +18,26 @@ export interface Post {
     markdown:string
     thumbnail:string
 }
+
+
+export type ArticleCreationT = Omit<ArticleI, "id">
+
+export type ArticleResponseT = ArticleI
+
+
+// export interface ArticleResponseI {
+//     id: number
+//     date_creation:string
+//     title:string
+//     color:string
+//     markdown:string
+//     thumbnail:string
+// }
+
+// export interface ArticleCreationI {
+//     date_creation:string
+//     title:string
+//     color:string
+//     markdown:string
+//     thumbnail:string
+// }

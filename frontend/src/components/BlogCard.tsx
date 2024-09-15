@@ -1,12 +1,12 @@
 import { Card, CardBody, CardFooter } from '@chakra-ui/card';
 import { Image, Stack, Heading, ButtonGroup, Button, LinkOverlay, Box } from '@chakra-ui/react';
 
-import { Post } from '../types';
+import { ArticleResponseT } from '../types';
 
 interface GridPostItemProps {
-    post: Post;
+    post: ArticleResponseT;
     isLoggedIn: boolean;
-    onDelete: (id: string) => void;
+    onDelete: (id: number) => void;
 }
 
 export const BlogCard = ({ post, isLoggedIn, onDelete }: GridPostItemProps) => {
@@ -15,7 +15,7 @@ export const BlogCard = ({ post, isLoggedIn, onDelete }: GridPostItemProps) => {
     const controls = () => (
         <CardFooter>
             <ButtonGroup spacing="2">
-                <Button variant="solid" colorScheme="blue" onClick={() => onDelete(id)}>
+                <Button variant="solid" colorScheme="blue" onClick={() => onDelete(post.id)}>
                     Delete
                 </Button>
             </ButtonGroup>
