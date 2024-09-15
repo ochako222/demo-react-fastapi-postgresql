@@ -12,7 +12,6 @@ from app.database import sessionmanager
 
 logging.basicConfig(stream=sys.stdout, level=logging.DEBUG if settings.log_level == "DEBUG" else logging.INFO)
 
-
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     """
