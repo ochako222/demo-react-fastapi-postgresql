@@ -4,6 +4,7 @@ import { get } from "http";
 import { useContext, useState, useEffect } from "react";
 import { Helmet } from "react-helmet";
 import { useParams } from "react-router-dom";
+import { api } from "src/api/articles.service";
 import ThumbnailPreview from "src/components/ThumbnailPreview";
 import { AuthContext } from "src/context/AuthContext";
 import { Post } from "src/types";
@@ -14,27 +15,31 @@ export const EditPost = () => {
     const context = useContext(AuthContext);
 
     const [post, updatePost] = useState<Post>({
-        id: '',
+        id: 0,
+        date_creation:'',
         title: '',
         markdown: '',
         thumbnail: '',
         color: '#000000'
     });
 
-    // useEffect(() => {
-    //     console.log('EditPost');
-    //     const setPost = async () => {
-    //         console.log(id);
-    //         if (id && db) {
-    //             const postsRef = ref(db, `posts/${id}`);
-    //             const snapshot = await get(postsRef);
 
-    //             updatePost(snapshot.val());
-    //         }
-    //     };
+    useEffect(() => {
+        const setPost = async () => {
+            console.log(id);
+            if (id) {
 
-    //     setPost();
-    // }, []);
+                const article = await api.getArticleById(+id);
+                console.log(article)
+          
+                // const snapshot = await get(postsRef);
+
+                // updatePost(snapshot.val());
+            }
+        };
+
+        setPost();
+    }, []);
 
     // const onTitleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     //     updatePost({

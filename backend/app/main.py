@@ -4,6 +4,7 @@ from contextlib import asynccontextmanager
 
 import uvicorn
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 
 from app.api.routers.articles import router as article_router
 from app.config import settings
@@ -26,6 +27,14 @@ async def lifespan(app: FastAPI):
 
 app = FastAPI(lifespan=lifespan, title=settings.project_name, docs_url="/api/docs")
 
+# Add CORS middleware
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["http://localhost:3000"],  # React app URL
+    allow_credentials=True,
+    allow_methods=["*"],  # Allow all HTTP methods (GET, POST, etc.)
+    allow_headers=["*"],  # Allow all headers
+)
 
 @app.get("/")
 async def root():
