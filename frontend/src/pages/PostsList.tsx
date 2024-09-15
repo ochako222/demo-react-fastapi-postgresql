@@ -22,17 +22,12 @@ export const PostsList: React.FC = () => {
     useEffect(() => {
         const setPost = async () => {
             const articles = await api.getAllArticles();
-            console.log(articles);
-
-
-
             if(Array.isArray(articles) && !!articles.length){
                 updatePostsList(articles);
             }else{
                 console.log('there are not articles...')
             }
         };
-
         setPost();
     }, []);
 
@@ -42,6 +37,7 @@ export const PostsList: React.FC = () => {
                 post={item}
                 key={item.id}
                 isLoggedIn={context.isLogged}
+                // Here we pass the deletePost function to the BlogCard component
                 onDelete={deletePost}
             />
         ));

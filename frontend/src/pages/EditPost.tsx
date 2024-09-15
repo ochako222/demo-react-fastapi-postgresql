@@ -25,15 +25,10 @@ export const EditPost = () => {
 
     useEffect(() => {
         const setPost = async () => {
-            console.log(id);
             if (id) {
-
                 const article = await api.getArticleById(+id);
-                console.log(article)
-          
-                // const snapshot = await get(postsRef);
 
-                // updatePost(snapshot.val());
+                updatePost(article);
             }
         };
 
@@ -158,7 +153,7 @@ export const EditPost = () => {
         </>
     );
 
-    const unloggedView = (
+    const guestView = (
         <>
             <Helmet>
                 <title>{article.title ?? 'new article'}</title>
@@ -169,6 +164,7 @@ export const EditPost = () => {
                 <meta property="og:type" content="website" />
             </Helmet>
             <Container py={'5'} maxW="4xl">
+                <Button onClick={()=>console.log(article)}>foo</Button>
                 <Heading as="h3" fontSize={20} mb={4}>
                     {article.title}
                 </Heading>
@@ -177,7 +173,7 @@ export const EditPost = () => {
         </>
     );
 
-    return <>{context.isLogged ? loggedView : unloggedView}</>;
+    return <>{context.isLogged ? loggedView : guestView}</>;
 };
 
 export default EditPost;

@@ -15,6 +15,7 @@ export const BlogCard = ({ post, isLoggedIn, onDelete }: GridPostItemProps) => {
     const controls = () => (
         <CardFooter>
             <ButtonGroup spacing="2">
+                {/* Here we use link to deletePost function from the parent component with onDelete link */}
                 <Button variant="solid" colorScheme="blue" onClick={() => onDelete(post.id)}>
                     Delete
                 </Button>
