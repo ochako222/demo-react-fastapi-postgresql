@@ -7,7 +7,6 @@ import { AuthProvider } from './context/AuthProvider';
 import EditPost from './pages/EditPost';
 import PostsList from './pages/PostsList';
 
-
 import './index.scss';
 
 const App: React.FC = () => {

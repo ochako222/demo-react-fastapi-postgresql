@@ -1,31 +1,29 @@
-import { Spinner, Container, Box, Button, SimpleGrid } from "@chakra-ui/react";
-import { useContext, useState, useEffect } from "react";
-import { Helmet } from "react-helmet";
-import { Link } from "react-router-dom";
-import { api } from "src/api/articles.service";
-import { BlogCard } from "src/components/BlogCard";
-import { AuthContext } from "src/context/AuthContext";
-import { ArticleResponseT } from "src/types";
-
+import { Spinner, Container, Box, Button, SimpleGrid } from '@chakra-ui/react';
+import { useContext, useState, useEffect } from 'react';
+import { Helmet } from 'react-helmet';
+import { Link } from 'react-router-dom';
+import { api } from 'src/api/articles.service';
+import { BlogCard } from 'src/components/BlogCard';
+import { AuthContext } from 'src/context/AuthContext';
+import { ArticleResponseT } from 'src/types';
 
 export const PostsList: React.FC = () => {
     const context = useContext(AuthContext);
     const [postsList, updatePostsList] = useState<ArticleResponseT[]>();
 
     const deletePost = async (id: number) => {
-        await api.deleteArticle(id)
+        await api.deleteArticle(id);
         const newPostsList = postsList?.filter((el) => el.id !== id);
         updatePostsList(newPostsList);
     };
 
-
     useEffect(() => {
         const setPost = async () => {
             const articles = await api.getAllArticles();
-            if(Array.isArray(articles) && !!articles.length){
+            if (Array.isArray(articles) && !!articles.length) {
                 updatePostsList(articles);
-            }else{
-                console.log('there are not articles...')
+            } else {
+                console.log('there are not articles...');
             }
         };
         setPost();
@@ -43,7 +41,6 @@ export const PostsList: React.FC = () => {
         ));
 
     const posts = postsList?.length ? renderPosts(postsList) : <Spinner />;
-
 
     return (
         <>

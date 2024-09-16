@@ -16,7 +16,6 @@ import { IoLogoGithub } from 'react-icons/io5';
 import { HamburgerIcon } from '@chakra-ui/icons';
 import { AuthContext } from 'src/context/AuthContext';
 
-
 export const Navbar: React.FC = () => {
     const context = useContext(AuthContext);
 

@@ -8,14 +8,21 @@ import {
     Grid,
     GridItem,
     Link,
-    Tooltip,
+    Tooltip
 } from '@chakra-ui/react';
 import { Helmet } from 'react-helmet';
 import React from 'react';
 import styled from '@emotion/styled';
-import {  IoLogoLinkedin, IoLogoJavascript } from 'react-icons/io5';
+import { IoLogoLinkedin, IoLogoJavascript } from 'react-icons/io5';
 import { FaTelegramPlane, FaReact } from 'react-icons/fa';
-import { SiTypescript, SiCypress, SiPlaywright, SiPython, SiFastapi, SiRobotframework } from 'react-icons/si';
+import {
+    SiTypescript,
+    SiCypress,
+    SiPlaywright,
+    SiPython,
+    SiFastapi,
+    SiRobotframework
+} from 'react-icons/si';
 
 import { TbSql } from 'react-icons/tb';
 
@@ -111,26 +118,24 @@ export const Home: React.FC = () => (
                 </Heading>
 
                 <Paragraph>
-           
-                        I&apos;m currently working at
-                        <Link
-                            href="https://www.eleks.com"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            style={{
-                                textDecoration: 'none',
-                                display: 'inline',
-                                height: '100%',
-                                margin: '0 0 0 0.25em '
-                            }}
-                        >
-                            <EleksIcon />
-                        </Link>
-                        , on an education platform for enterprise clients, where I&apos;m automating
-                        every possible aspect of the app, developing various integrations, and
-                        enjoying the CI delivery process. It&apos;s awesome to see how the test
-                        framework has grown from zero to hero.
-              
+                    I&apos;m currently working at
+                    <Link
+                        href="https://www.eleks.com"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        style={{
+                            textDecoration: 'none',
+                            display: 'inline',
+                            height: '100%',
+                            margin: '0 0 0 0.25em '
+                        }}
+                    >
+                        <EleksIcon />
+                    </Link>
+                    , on an education platform for enterprise clients, where I&apos;m automating
+                    every possible aspect of the app, developing various integrations, and enjoying
+                    the CI delivery process. It&apos;s awesome to see how the test framework has
+                    grown from zero to hero.
                     <br />
                     <br />
                     Previously, I worked at
@@ -176,57 +181,57 @@ export const Home: React.FC = () => (
                 </Heading>
 
                 <Grid templateColumns="repeat(4, 1fr)" gap={4} py={4}>
-                <Tooltip label='Java Script - 4.5 years' fontSize='md'>
-                    <GridItem>
-                        <IoLogoJavascript color="#F7E017" fontSize="3em" />
-                    </GridItem>
+                    <Tooltip label="Java Script - 4.5 years" fontSize="md">
+                        <GridItem>
+                            <IoLogoJavascript color="#F7E017" fontSize="3em" />
+                        </GridItem>
                     </Tooltip>
-                    <Tooltip label='Type Script - 4 years' fontSize='md'>
-                    <GridItem>
-                        <SiTypescript color="#2E78C7" fontSize="2.8em" />
-                    </GridItem>
+                    <Tooltip label="Type Script - 4 years" fontSize="md">
+                        <GridItem>
+                            <SiTypescript color="#2E78C7" fontSize="2.8em" />
+                        </GridItem>
                     </Tooltip>
-                    <Tooltip label='Python - 2 years' fontSize='md'>
-                    <GridItem>
-                        <SiPython color="#20A422" fontSize="3em" />
-                    </GridItem>
+                    <Tooltip label="Python - 2 years" fontSize="md">
+                        <GridItem>
+                            <SiPython color="#20A422" fontSize="3em" />
+                        </GridItem>
                     </Tooltip>
-                    <Tooltip label='SQL - 2 years' fontSize='md'>
-                    <GridItem>
-                        <TbSql color="#31648C" fontSize="3em" />
-                    </GridItem>
+                    <Tooltip label="SQL - 2 years" fontSize="md">
+                        <GridItem>
+                            <TbSql color="#31648C" fontSize="3em" />
+                        </GridItem>
                     </Tooltip>
-                    <Tooltip label='Cypress - 2.5 years' fontSize='md'>
-                    <GridItem>
-                        <SiCypress color="#3B3B3B" fontSize="3em" />
-                    </GridItem>
+                    <Tooltip label="Cypress - 2.5 years" fontSize="md">
+                        <GridItem>
+                            <SiCypress color="#3B3B3B" fontSize="3em" />
+                        </GridItem>
                     </Tooltip>
-                    <Tooltip label='Playwright - 3.5 years' fontSize='md'>
-                    <GridItem>
-                        <SiPlaywright color="#3B3B3B" fontSize="3em" />
-                    </GridItem>
+                    <Tooltip label="Playwright - 3.5 years" fontSize="md">
+                        <GridItem>
+                            <SiPlaywright color="#3B3B3B" fontSize="3em" />
+                        </GridItem>
                     </Tooltip>
-                    <Tooltip label='Robot Framework - 0.5 years' fontSize='md'>
-                    <GridItem>
-                        <SiRobotframework color="#3B3B3B" fontSize="3em" />
-                    </GridItem>
+                    <Tooltip label="Robot Framework - 0.5 years" fontSize="md">
+                        <GridItem>
+                            <SiRobotframework color="#3B3B3B" fontSize="3em" />
+                        </GridItem>
                     </Tooltip>
-                    <Tooltip label='React - 1 year' fontSize='md'>
-                    <GridItem>
-                        <FaReact color="#60DBFB" fontSize="3em" />
-                    </GridItem>
+                    <Tooltip label="React - 1 year" fontSize="md">
+                        <GridItem>
+                            <FaReact color="#60DBFB" fontSize="3em" />
+                        </GridItem>
                     </Tooltip>
-                    <Tooltip label='FastApi - 0.5 year' fontSize='md'>
-                    <GridItem>
-                        <SiFastapi color="#EA2845" fontSize="3em" />
-                    </GridItem>
+                    <Tooltip label="FastApi - 0.5 year" fontSize="md">
+                        <GridItem>
+                            <SiFastapi color="#EA2845" fontSize="3em" />
+                        </GridItem>
                     </Tooltip>
                 </Grid>
             </Box>
 
             <Box py={5}>
                 <Heading as="h4" size="md" variant="section-title">
-                Contacts
+                    Contacts
                 </Heading>
                 <Container
                     display="flex"

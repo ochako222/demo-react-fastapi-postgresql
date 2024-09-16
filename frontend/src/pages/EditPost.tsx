@@ -1,15 +1,13 @@
-import { Container, Input, Button, Heading } from "@chakra-ui/react";
-import { useContext, useState, useEffect } from "react";
-import { Helmet } from "react-helmet";
-import { useParams } from "react-router-dom";
-import { api } from "src/api/articles.service";
-import ThumbnailPreview from "src/components/ThumbnailPreview";
-import { AuthContext } from "src/context/AuthContext";
-import { ArticleCreationT } from "src/types";
+import { Container, Input, Button, Heading } from '@chakra-ui/react';
+import { useContext, useState, useEffect } from 'react';
+import { Helmet } from 'react-helmet';
+import { useParams } from 'react-router-dom';
+import { api } from 'src/api/articles.service';
+import ThumbnailPreview from 'src/components/ThumbnailPreview';
+import { AuthContext } from 'src/context/AuthContext';
+import { ArticleCreationT } from 'src/types';
 import MDEditor from '@uiw/react-md-editor';
 import rehypeSanitize from 'rehype-sanitize';
-
-
 
 export const EditPost = () => {
     const { id } = useParams();
@@ -21,7 +19,6 @@ export const EditPost = () => {
         thumbnail: '',
         color: '#000000'
     });
-
 
     useEffect(() => {
         const setPost = async () => {
@@ -65,26 +62,21 @@ export const EditPost = () => {
 
     const postPost = async () => {
         if (id && id !== 'new') {
-            // logic for updating existing post
-            // set(ref(db, `posts/${id}`), {
-            //     markdown: post.markdown,
-            //     title: post.title,
-            //     thumbnail: post.thumbnail,
-            //     color: post.color
-            // });
+            // Logic for update existing article
+            await api.patchArticle(+id, {
+                markdown: article.markdown,
+                title: article.title,
+                thumbnail: article.thumbnail,
+                color: article.color
+            });
         } else {
-            // Logic for creating new post
-            // const postListRef = ref(db, `posts/`);
-            // const newPostRef = push(postListRef);
-
+            // Logic for creation new article
             await api.postArticle({
                 markdown: article.markdown,
                 title: article.title,
                 thumbnail: article.thumbnail,
                 color: article.color
-            })
-
-    
+            });
         }
     };
 
@@ -164,7 +156,6 @@ export const EditPost = () => {
                 <meta property="og:type" content="website" />
             </Helmet>
             <Container py={'5'} maxW="4xl">
-                <Button onClick={()=>console.log(article)}>foo</Button>
                 <Heading as="h3" fontSize={20} mb={4}>
                     {article.title}
                 </Heading>
