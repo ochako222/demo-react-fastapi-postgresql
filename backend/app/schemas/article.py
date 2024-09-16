@@ -20,3 +20,14 @@ class ArticleResponse(BaseModel):
     markdown: str
     thumbnail: str
     color: str
+    
+    
+    
+
+class ArticlePatch(BaseModel):
+    model_config = ConfigDict(from_attributes=True)
+    
+    title: str
+    markdown: str
+    thumbnail: str
+    color: str

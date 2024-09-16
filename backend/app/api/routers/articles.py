@@ -1,7 +1,7 @@
 from typing import List
 from app.api.dependencies.core import DBSessionDep
-from app.crud.article import create_article, get_article,get_all_articles,delete_article_by_id
-from app.schemas.article import ArticleCreate,ArticleResponse
+from app.crud.article import create_article, get_article,get_all_articles,delete_article_by_id,update_article_by_id
+from app.schemas.article import ArticleCreate, ArticlePatch,ArticleResponse
 from fastapi import APIRouter,HTTPException
 
 router = APIRouter(
@@ -77,4 +77,21 @@ async def delete_article(
     except Exception as e:
         raise HTTPException(status_code=400, detail=str(e))
     
+    
+@router.patch(
+    "/{article_id}"
+)
+async def update_article(
+    article_id: int,
+    db_session: DBSessionDep,
+    article_data: ArticlePatch,
+):
+    """
+    Update an article
+    """
+    try:
+        await update_article_by_id(db_session,article_id,article_data)
+        return {"message": "article updated"}
+    except Exception as e:
+        raise HTTPException(status_code=400, detail=str(e))
    
