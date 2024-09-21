@@ -9,7 +9,7 @@
         "eject": "react-scripts eject",
         "format": "prettier --write .",
         "lint": "eslint . --ext .js,.ts,.tsx --fix",
-        "prepare": "husky install"
+        "foo": "husky install"
     },
     "dependencies": {
         "@chakra-ui/icons": "^2.0.17",
