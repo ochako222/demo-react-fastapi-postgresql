@@ -4,7 +4,10 @@
 **/env/
 **/docker/
 **/build
+**/.vercel
 
 # metadata / cache
 **/__pycache__/
 **/.env
+
+**/.DS_Store
